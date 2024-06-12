@@ -1,0 +1,53 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java
+{
+    // 容器的名稱
+    "name": "Java Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/base:jammy",
+    "features": {
+      // https://github.com/devcontainers/features/blob/main/src/java/devcontainer-feature.json
+      "ghcr.io/devcontainers/features/java:1": {
+        "version": "17",
+        "installMaven": "false",
+        "installGradle": "true"
+      },
+      "ghcr.io/devcontainers/features/node:1": {},
+      "ghcr.io/dhoeric/features/google-cloud-cli:1": {},
+      "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+  
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [8080],
+  
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "java -version",
+    "postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh",
+  
+    // Configure tool-specific properties.
+    // "customizations": {},
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          // Java
+          "vscjava.vscode-lombok",
+          "vscjava.vscode-java-pack",
+          "vmware.vscode-boot-dev-pack",
+          "vscjava.vscode-gradle",
+          // CVE
+          "redhat.fabric8-analytics",
+          // Quality
+          "SonarSource.sonarlint-vscode",
+          // Cloud
+          "GoogleCloudTools.cloudcode",
+          // Tools
+          "bierner.markdown-mermaid",
+          "DavidAnson.vscode-markdownlint",
+          "hediet.vscode-drawio"
+        ]
+      }
+    },
+  
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    "remoteUser": "vscode"
+  }
+  
