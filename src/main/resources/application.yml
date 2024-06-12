@@ -1,3 +1,6 @@
 spring:
   application:
     name: agent-studio
+  threads:
+    virtual:
+      enabled: true
